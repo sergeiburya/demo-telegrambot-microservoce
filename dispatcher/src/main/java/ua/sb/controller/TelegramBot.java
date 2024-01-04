@@ -1,25 +1,26 @@
 package ua.sb.controller;
 
+import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ua.sb.config.BotConfig;
 import ua.sb.service.UpdateProcessor;
 
-import javax.annotation.PostConstruct;
-
+/**
+ * @author Serhii Buria
+ */
 @Component
 @Log4j
 @RequiredArgsConstructor
 public class TelegramBot extends TelegramLongPollingBot {
+    private static final String ERROR_TEXT = "Error occurred: ";
     private final BotConfig botConfig;
     private final UpdateProcessor updateProcessor;
-    private static final String ERROR_TEXT = "Error occurred: ";
 
     @PostConstruct
     public void init() {
@@ -45,14 +46,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         if (message != null) {
             executeMessage(message);
         }
-    }
-
-
-    private void sendMessage(long chatId, String textToSend) {
-        SendMessage message = new SendMessage();
-        message.setChatId(chatId);
-        message.setText(textToSend);
-        executeMessage(message);
     }
 
     private void executeMessage(SendMessage message) {

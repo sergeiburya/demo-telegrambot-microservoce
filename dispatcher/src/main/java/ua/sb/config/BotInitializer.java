@@ -11,6 +11,9 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import ua.sb.controller.TelegramBot;
 
+/**
+ * @author Serhii Buria
+ */
 @Component
 @Log4j
 @AllArgsConstructor

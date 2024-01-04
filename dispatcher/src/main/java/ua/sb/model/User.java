@@ -1,13 +1,16 @@
 package ua.sb.model;
 
+import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Timestamp;
 import lombok.Data;
 import lombok.ToString;
 
+/**
+ * @author Serhii Buria
+ */
 @Data
-@Entity(name="users")
+@Entity(name = "users")
 @ToString
 public class User {
     @Id

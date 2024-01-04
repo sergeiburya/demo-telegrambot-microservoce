@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import ua.sb.service.AnswerConsumer;
 
+/**
+ * @author Serhii Buria
+ */
 @Service
 @Log4j
 public class AnswerConsumerService implements AnswerConsumer {

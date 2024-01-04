@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ua.sb.service.UpdateProducer;
 
+/**
+ * @author Serhii Buria
+ */
 @Service
 @Log4j
 public class UpdateProducerService implements UpdateProducer {

@@ -5,15 +5,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+/**
+ * @author Serhii Buria
+ */
 @Configuration
 @Data
 @PropertySource("classpath:application.properties")
 public class BotConfig {
     @Value("${telegram.botName}")
-    String botUserName;
+    private String botUserName;
 
     @Value("${telegram.botToken}")
-    String token;
+    private String token;
 
     @Value("${telegram.botOwnerId}")
     private Long botOwnerId;

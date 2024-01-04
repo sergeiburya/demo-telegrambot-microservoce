@@ -38,3 +38,5 @@ v
 Fdispatcher/src/main/java/ua/sb/service/impl/AnswerConsumerService.java,c\b\cb43057e1363ceb0311c5fc8e9d9e5f708d42b3d
 >
 checkstyle.xml,0\d\0d7fcbf2189c1d04b7686bca0ee60fdded230e2d
+I
+dispatcher/checkstyle.xml,8\0\80bbd5967560c597b098635342279b15226cc241
