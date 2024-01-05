@@ -15,8 +15,6 @@ i
 .dispatcher/src/main/java/ua/sb/model/User.java,4\0\40dc9fe919ff305aca2da25bc108a0b255f1f8a9
 q
 Adispatcher/src/main/java/ua/sb/repositories/UserRepositories.java,e\b\eb14856277e8a133fc8ff30f5d1a94239c54ec85
-C
-logs/dispatcher.log,d\4\d41cb08e4426b0f67121f395aa30d4bcc649d8bf
 k
 ;dispatcher/src/main/java/ua/sb/service/UpdateProcessor.java,4\8\481e650ebbeb271aa04f11ab51f127632bdb0c0a
 :
@@ -38,5 +36,5 @@ v
 Fdispatcher/src/main/java/ua/sb/service/impl/AnswerConsumerService.java,c\b\cb43057e1363ceb0311c5fc8e9d9e5f708d42b3d
 >
 checkstyle.xml,0\d\0d7fcbf2189c1d04b7686bca0ee60fdded230e2d
-I
-dispatcher/checkstyle.xml,8\0\80bbd5967560c597b098635342279b15226cc241
+n
+>dispatcher/src/main/java/ua/sb/config/RabbitConfiguration.java,c\5\c53c27b21542f09f97ae19c15e9c622f7ba2dcee
