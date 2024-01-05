@@ -12,11 +12,13 @@
   <modules>
     <module>dispatcher</module>
     <module>common-rabbitmq</module>
+      <module>node</module>
   </modules>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <telegrambot.starter.version>6.8.0</telegrambot.starter.version>
   </properties>
 
   <parent>

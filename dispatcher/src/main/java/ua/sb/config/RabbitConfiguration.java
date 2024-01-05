@@ -1,6 +1,6 @@
 package ua.sb.config;
 
-import static ua.sb.model.RabbitQueue.ANSWER_MESSAGE_UPDATE;
+import static ua.sb.model.RabbitQueue.ANSWER_MESSAGE;
 import static ua.sb.model.RabbitQueue.DOC_MESSAGE_UPDATE;
 import static ua.sb.model.RabbitQueue.PHOTO_MESSAGE_UPDATE;
 import static ua.sb.model.RabbitQueue.TEXT_MESSAGE_UPDATE;
@@ -38,6 +38,6 @@ public class RabbitConfiguration {
 
     @Bean
     public Queue answerMessageQueue() {
-        return new Queue(ANSWER_MESSAGE_UPDATE);
+        return new Queue(ANSWER_MESSAGE);
     }
 }
