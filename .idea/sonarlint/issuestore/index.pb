@@ -52,3 +52,11 @@ n
 >node/src/main/java/ua/sb/service/impl/ProducerServiceImpl.java,e\c\ecab84d54e66086bde6a2667fa80d5277920bed9
 h
 8node/src/main/java/ua/sb/config/RabbitConfiguration.java,3\2\32c5cf967b98b9b3476bbf662fe98fbf8aa894be
+[
++node/src/main/java/ua/sb/model/RawData.java,1\a\1a20ad907a2c544ca8668891a2b33075105b9db7
+j
+:node/src/main/java/ua/sb/repositories/RawRepositories.java,3\4\3460ac73bc78c3a5375350ea6b58b33fa717b162
+f
+6node/src/main/java/ua/sb/repositories/MainService.java,4\4\4436602541b371e64f9285bdc1c74cf898bb1bce
+j
+:node/src/main/java/ua/sb/service/impl/MainServiceImpl.java,2\7\27f8f3f471ab22dc9dc51e3528dc488b078c5fb9

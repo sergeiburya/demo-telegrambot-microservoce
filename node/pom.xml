@@ -1,14 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>node</artifactId>
+    <name>node</name>
+    <url>http://maven.apache.org</url>
+
     <parent>
         <groupId>ua.sb</groupId>
         <artifactId>demo-telegrambot-microservoce</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>node</artifactId>
-    <name>Archetype - node</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <maven.checkstyle.plugin.configLocation>../checkstyle.xml</maven.checkstyle.plugin.configLocation>
@@ -35,6 +36,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.18</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+
+
+
+
 
     </dependencies>
 

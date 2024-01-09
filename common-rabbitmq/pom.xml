@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>common-rabbitmq</artifactId>
-    <name>Archetype - common-rabbitmq</name>
+    <name>common-rabbitmq</name>
     <url>http://maven.apache.org</url>
 
     <properties>
