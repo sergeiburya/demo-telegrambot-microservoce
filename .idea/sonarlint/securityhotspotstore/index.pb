@@ -68,3 +68,7 @@ t
 Dcommon-jpa/src/main/java/ua/sb/repositories/AppUserRepositories.java,c\c\ccf561b73c55b43524cfe2869b8bfba64bb92abf
 c
 3common-jpa/src/main/java/ua/sb/model/UserState.java,6\a\6a98be60c25a7085f34673bc109ed0cdb4f8b348
+i
+9node/src/main/java/ua/sb/model/enums/ServiceCommands.java,6\5\6548a84784bf3079cc6b9847ae1c6ecbbb414a86
+a
+1node/src/main/java/ua/sb/service/MainService.java,2\e\2e76b81c5ac03582ef1d25c986dbfeb7df4d4c88

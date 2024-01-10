@@ -1,5 +1,13 @@
 
-]
-java:S1854'";Remove this useless assignment to local variable "appUser".(ªÆ–îøÿÿÿÿ8Îì›Ï1
-N
-java:S1481'",Remove this unused "appUser" local variable.(ªÆ–îøÿÿÿÿ8ƒœÏ1
+J
+java:S5411\"(Use a primitive boolean expression here.(ÚêÌŞûÿÿÿÿ8´¡º Ï1
+O
+java:S11356"2Complete the task associated to this TODO comment.(…ïœ†8Ó¡º Ï1
+T
+java:S1135H"2Complete the task associated to this TODO comment.(İšµñøÿÿÿÿ8Õ¡º Ï1
+T
+java:S1135U"2Complete the task associated to this TODO comment.(¿éıĞøÿÿÿÿ8Ö¡º Ï1
+K
+java:S1172g".Remove this unused method parameter "appUser".(ŞÛªÃ8Ø¡º Ï1
+T
+java:S1135i"2Complete the task associated to this TODO comment.(¿óÃÈüÿÿÿÿ8Ù¡º Ï1
