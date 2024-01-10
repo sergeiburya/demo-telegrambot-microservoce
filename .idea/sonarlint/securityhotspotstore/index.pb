@@ -60,3 +60,11 @@ f
 6node/src/main/java/ua/sb/repositories/MainService.java,4\4\4436602541b371e64f9285bdc1c74cf898bb1bce
 j
 :node/src/main/java/ua/sb/service/impl/MainServiceImpl.java,2\7\27f8f3f471ab22dc9dc51e3528dc488b078c5fb9
+B
+common-jpa/pom.xml,f\2\f2bbdeb4897403d5da9480448a81ade4f48d6c81
+a
+1common-jpa/src/main/java/ua/sb/model/AppUser.java,6\5\65851dd86998ba5837d6c5622dd1e8c7b1872a73
+t
+Dcommon-jpa/src/main/java/ua/sb/repositories/AppUserRepositories.java,c\c\ccf561b73c55b43524cfe2869b8bfba64bb92abf
+c
+3common-jpa/src/main/java/ua/sb/model/UserState.java,6\a\6a98be60c25a7085f34673bc109ed0cdb4f8b348
