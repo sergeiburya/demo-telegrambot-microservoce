@@ -12,11 +12,15 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
+import ua.sb.exception.UploadFileException;
+import ua.sb.model.AppDocument;
 import ua.sb.model.AppUser;
 import ua.sb.model.RawData;
 import ua.sb.model.UserState;
+import ua.sb.model.enums.ServiceCommands;
 import ua.sb.repositories.AppUserRepositories;
 import ua.sb.repositories.RawRepositories;
+import ua.sb.service.FileService;
 import ua.sb.service.MainService;
 import ua.sb.service.ProducerService;
 
@@ -29,13 +33,16 @@ public class MainServiceImpl implements MainService {
     private final RawRepositories rawRepositories;
     private final ProducerService producerService;
     private final AppUserRepositories appUserRepositories;
+    private final FileService fileService;
 
     public MainServiceImpl(RawRepositories rawRepositories,
                            ProducerService producerService,
-                           AppUserRepositories appUserRepositories) {
+                           AppUserRepositories appUserRepositories,
+                           FileService fileService) {
         this.rawRepositories = rawRepositories;
         this.producerService = producerService;
         this.appUserRepositories = appUserRepositories;
+        this.fileService = fileService;
     }
 
     @Override
@@ -43,13 +50,14 @@ public class MainServiceImpl implements MainService {
         saveRawData(update);
         AppUser appUser = findOrSaveAppUser(update);
         UserState userState = appUser.getState();
-        String cmd = update.getMessage().getText();
+        String text = update.getMessage().getText();
         String output = "";
 
-        if (CANCEL.equals(cmd)) {
+        ServiceCommands serviceCommands = ServiceCommands.fromValue(text);
+        if (CANCEL.equals(serviceCommands)) {
             output = cancelProcess(appUser);
         } else if (BASIC_STATE.equals(userState)) {
-            output = processServiceCommand(appUser, cmd);
+            output = processServiceCommand(appUser, text);
         } else if (WAIT_FOR_EMAIL_STATE.equals(userState)) {
             //TODO
         } else {
@@ -69,9 +77,16 @@ public class MainServiceImpl implements MainService {
         if (isNotAllowToSendContent(chatId, appUser)) {
             return;
         }
-        //TODO add save doc method
-        String answer = "Document uploaded successfully! Download link: http:/ua.sb/getDoc/..";
-        sendAnswer(answer, chatId);
+
+        try {
+            AppDocument doc = fileService.processDoc(update.getMessage());
+            String answer = "Document uploaded successfully! Download link: http:/ua.sb/getDoc/..";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException e) {
+            log.error(e);
+            String error = "File upload failed. Try later.";
+            sendAnswer(error, chatId);
+        }
     }
 
     @Override

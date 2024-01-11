@@ -11,10 +11,6 @@ d
 4dispatcher/src/main/java/ua/sb/config/BotConfig.java,5\6\563641721b64d2d147102ddae847558ac0e849a4
 i
 9dispatcher/src/main/java/ua/sb/config/BotInitializer.java,2\1\21fa154fe3a6471a6829e639705a2c13270e5feb
-^
-.dispatcher/src/main/java/ua/sb/model/User.java,4\0\40dc9fe919ff305aca2da25bc108a0b255f1f8a9
-q
-Adispatcher/src/main/java/ua/sb/repositories/UserRepositories.java,e\b\eb14856277e8a133fc8ff30f5d1a94239c54ec85
 k
 ;dispatcher/src/main/java/ua/sb/service/UpdateProcessor.java,4\8\481e650ebbeb271aa04f11ab51f127632bdb0c0a
 :
@@ -56,8 +52,6 @@ h
 +node/src/main/java/ua/sb/model/RawData.java,1\a\1a20ad907a2c544ca8668891a2b33075105b9db7
 j
 :node/src/main/java/ua/sb/repositories/RawRepositories.java,3\4\3460ac73bc78c3a5375350ea6b58b33fa717b162
-f
-6node/src/main/java/ua/sb/repositories/MainService.java,4\4\4436602541b371e64f9285bdc1c74cf898bb1bce
 j
 :node/src/main/java/ua/sb/service/impl/MainServiceImpl.java,2\7\27f8f3f471ab22dc9dc51e3528dc488b078c5fb9
 B
@@ -72,3 +66,17 @@ i
 9node/src/main/java/ua/sb/model/enums/ServiceCommands.java,6\5\6548a84784bf3079cc6b9847ae1c6ecbbb414a86
 a
 1node/src/main/java/ua/sb/service/MainService.java,2\e\2e76b81c5ac03582ef1d25c986dbfeb7df4d4c88
+e
+5common-jpa/src/main/java/ua/sb/model/AppDocument.java,6\e\6e7850278124cf5613264e9542246f9a9fcb6af6
+g
+7common-jpa/src/main/java/ua/sb/model/BinaryContent.java,a\8\a8451e194c32014f9daf21d34ffa5b64a66a26d9
+v
+Fcommon-jpa/src/main/java/ua/sb/repositories/AppDocumentRepository.java,c\f\cff46c8214cbec135a1a0ca9846386c895accd8e
+x
+Hcommon-jpa/src/main/java/ua/sb/repositories/BinaryContentRepository.java,6\2\629dfa8a9143bcad02879fd1e84af6639b22706a
+a
+1node/src/main/java/ua/sb/service/FileService.java,b\c\bc79518765d61ff6a4190cc35e5750bd48c8e096
+j
+:node/src/main/java/ua/sb/service/impl/FileServiceImpl.java,0\8\08080d7d3328ffb293c7d32fc6b5a2b4c00c52a4
+k
+;node/src/main/java/ua/sb/exception/UploadFileException.java,2\9\2949bd968f1edda8773086a036f66aa6b5dae1da

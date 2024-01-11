@@ -5,18 +5,23 @@ public enum ServiceCommands {
     REGISTRATION("/registration"),
     CANCEL("/cancel"),
     START("/start");
-    private final String cmd;
+    private final String value;
 
-    ServiceCommands(String cmd) {
-        this.cmd = cmd;
+    ServiceCommands(String value) {
+        this.value = value;
     }
 
     @Override
     public String toString() {
-        return cmd;
+        return value;
     }
 
-    public boolean equals(String cmd) {
-        return this.toString().equals(cmd);
+    public static ServiceCommands fromValue(String value) {
+        for (ServiceCommands v:ServiceCommands.values()) {
+            if (v.value.equals(value)) {
+                return v;
+            }
+        }
+        return null;
     }
 }

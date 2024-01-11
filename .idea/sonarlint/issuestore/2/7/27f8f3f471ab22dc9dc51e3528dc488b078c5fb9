@@ -1,13 +1,21 @@
 
 J
-java:S5411\"(Use a primitive boolean expression here.(ÚêÌÞûÿÿÿÿ8´¡º Ï1
+java:S5411k"(Use a primitive boolean expression here.(ÚêÌÞûÿÿÿÿ8¿±Ù¿Ï1
 O
-java:S11356"2Complete the task associated to this TODO comment.(…ïœ†8Ó¡º Ï1
+java:S1135>"2Complete the task associated to this TODO comment.(…ïœ†8Þ±Ù¿Ï1
+Y
+java:S1854R"7Remove this useless assignment to local variable "doc".(üÉú—þÿÿÿÿ8à±Ù¿Ï1
+J
+java:S1481R"(Remove this unused "doc" local variable.(üÉú—þÿÿÿÿ8á±Ù¿Ï1
 T
-java:S1135H"2Complete the task associated to this TODO comment.(Ýšµñøÿÿÿÿ8Õ¡º Ï1
-T
-java:S1135U"2Complete the task associated to this TODO comment.(¿éýÐøÿÿÿÿ8Ö¡º Ï1
+java:S1135d"2Complete the task associated to this TODO comment.(¿éýÐøÿÿÿÿ8ã±Ù¿Ï1
 K
-java:S1172g".Remove this unused method parameter "appUser".(ÞÛªÃ8Ø¡º Ï1
+java:S1172v".Remove this unused method parameter "appUser".(ÞÛªÃ8æ±Ù¿Ï1
+x
+java:S2159w"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÿ¹³Áúÿÿÿÿ8•…´ÆÏ1
 T
-java:S1135i"2Complete the task associated to this TODO comment.(¿óÃÈüÿÿÿÿ8Ù¡º Ï1
+java:S1135x"2Complete the task associated to this TODO comment.(¿óÃÈüÿÿÿÿ8ç±Ù¿Ï1
+x
+java:S2159z"VRemove this call to "equals"; comparisons between unrelated types always return false.(ŠÑÁÝÿÿÿÿÿ8–…´ÆÏ1
+s
+java:S2159|"VRemove this call to "equals"; comparisons between unrelated types always return false.(Ýõ´â8—…´ÆÏ1
