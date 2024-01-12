@@ -3,12 +3,15 @@ package ua.sb.controller;
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ua.sb.config.BotConfig;
 import ua.sb.service.UpdateProcessor;
 
 /**
@@ -17,29 +20,48 @@ import ua.sb.service.UpdateProcessor;
 @Component
 @Log4j
 @RequiredArgsConstructor
-public class TelegramBot extends TelegramLongPollingBot {
+@PropertySource("classpath:application.properties")
+public class TelegramBot extends TelegramWebhookBot {
     private static final String ERROR_TEXT = "Error occurred: ";
-    private final BotConfig botConfig;
+    @Value("${telegram.botName}")
+    private String botUserName;
+    @Value("${telegram.botToken}")
+    private String token;
+    @Value("${telegram.botUri}")
+    private String botUri;
     private final UpdateProcessor updateProcessor;
 
     @PostConstruct
     public void init() {
         updateProcessor.registerBot(this);
+        try {
+            var setWebhook = SetWebhook.builder()
+                    .url(botUri)
+                    .build();
+            this.setWebhook(setWebhook);
+        } catch (TelegramApiException e) {
+            log.error(e);
+        }
     }
 
     @Override
     public String getBotUsername() {
-        return botConfig.getBotUserName();
+        return botUserName;
     }
 
     @Override
     public String getBotToken() {
-        return botConfig.getToken();
+        return token;
     }
 
     @Override
-    public void onUpdateReceived(Update update) {
-        updateProcessor.processUpdate(update);
+    public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
+        return null;
+    }
+
+    @Override
+    public String getBotPath() {
+        return "/update";
     }
 
     public void sendAnswerMessage(SendMessage message) {

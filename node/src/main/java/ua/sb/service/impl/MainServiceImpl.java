@@ -13,10 +13,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import ua.sb.exception.UploadFileException;
-import ua.sb.model.AppDocument;
-import ua.sb.model.AppUser;
-import ua.sb.model.RawData;
-import ua.sb.model.UserState;
+import ua.sb.model.*;
 import ua.sb.model.enums.ServiceCommands;
 import ua.sb.repositories.AppUserRepositories;
 import ua.sb.repositories.RawRepositories;
@@ -80,7 +77,7 @@ public class MainServiceImpl implements MainService {
 
         try {
             AppDocument doc = fileService.processDoc(update.getMessage());
-            String answer = "Document uploaded successfully! Download link: http:/ua.sb/getDoc/..";
+            String answer = "Document uploaded successfully! Download link: http://ua.sb/getDoc/777";
             sendAnswer(answer, chatId);
         } catch (UploadFileException e) {
             log.error(e);
@@ -97,9 +94,15 @@ public class MainServiceImpl implements MainService {
         if (isNotAllowToSendContent(chatId, appUser)) {
             return;
         }
-        //TODO add save photo method
-        String answer = "Photo uploaded successfully! Download link: http:/ua.sb/getPhoto/..";
-        sendAnswer(answer, chatId);
+        try {
+            AppPhoto photo = fileService.processPhoto(update.getMessage());
+            String answer = "Photo uploaded successfully! Download link: http://ua.sb/getPhoto/777";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException e) {
+            log.error(e);
+            String error = "File upload failed. Try later.";
+            sendAnswer(error, chatId);
+        }
     }
 
     private boolean isNotAllowToSendContent(Long chatId, AppUser appUser) {
@@ -111,17 +114,19 @@ public class MainServiceImpl implements MainService {
         } else if (!BASIC_STATE.equals(userState)) {
             String errorMessage = "Cancel the command. Enter /cancel to send files";
             sendAnswer(errorMessage, chatId);
+            return true;
         }
         return false;
     }
 
     private String processServiceCommand(AppUser appUser, String cmd) {
-        if (REGISTRATION.equals(cmd)) {
+        ServiceCommands serviceCommands = ServiceCommands.fromValue(cmd);
+        if (REGISTRATION.equals(serviceCommands)) {
             //TODO add registration
             return "The command is temporarily unavailable!";
-        } else if (HELP.equals(cmd)) {
+        } else if (HELP.equals(serviceCommands)) {
             return help();
-        } else if (START.equals(cmd)) {
+        } else if (START.equals(serviceCommands)) {
             return "Hello! To view available commands, enter /help";
         }
 

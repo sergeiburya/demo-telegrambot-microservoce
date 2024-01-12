@@ -1,7 +1,5 @@
 package ua.sb.service.impl;
 
-import static ua.sb.model.RabbitQueue.ANSWER_MESSAGE;
-
 import lombok.extern.log4j.Log4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
@@ -22,7 +20,7 @@ public class AnswerConsumerService implements AnswerConsumer {
     }
 
     @Override
-    @RabbitListener(queues = ANSWER_MESSAGE)
+    @RabbitListener(queues = "${spring.rabbitmq.queues.answer-message}")
     public void consume(SendMessage sendMessage) {
         updateProcessor.setView(sendMessage);
     }

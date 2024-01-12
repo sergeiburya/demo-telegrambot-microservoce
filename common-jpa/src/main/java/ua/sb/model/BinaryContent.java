@@ -7,18 +7,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author Serhii Buria
  */
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = "id")
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "binary_content")
 @Entity
-@Table(name = "binary_Content")
 public class BinaryContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
