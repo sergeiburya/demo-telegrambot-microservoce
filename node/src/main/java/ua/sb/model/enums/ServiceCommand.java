@@ -1,13 +1,13 @@
 package ua.sb.model.enums;
 
-public enum ServiceCommands {
+public enum ServiceCommand {
     HELP("/help"),
     REGISTRATION("/registration"),
     CANCEL("/cancel"),
     START("/start");
     private final String value;
 
-    ServiceCommands(String value) {
+    ServiceCommand(String value) {
         this.value = value;
     }
 
@@ -16,8 +16,8 @@ public enum ServiceCommands {
         return value;
     }
 
-    public static ServiceCommands fromValue(String value) {
-        for (ServiceCommands v:ServiceCommands.values()) {
+    public static ServiceCommand fromValue(String value) {
+        for (ServiceCommand v: ServiceCommand.values()) {
             if (v.value.equals(value)) {
                 return v;
             }

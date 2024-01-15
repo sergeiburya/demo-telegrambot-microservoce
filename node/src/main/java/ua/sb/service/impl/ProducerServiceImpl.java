@@ -1,8 +1,7 @@
 package ua.sb.service.impl;
 
-import static ua.sb.model.RabbitQueue.ANSWER_MESSAGE;
-
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import ua.sb.service.ProducerService;
@@ -13,6 +12,8 @@ import ua.sb.service.ProducerService;
 @Service
 public class ProducerServiceImpl implements ProducerService {
     private final RabbitTemplate rabbitTemplate;
+    @Value("${spring.rabbitmq.queues.answer-message}")
+    private String answerMessageQueue;
 
     public ProducerServiceImpl(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
@@ -20,6 +21,6 @@ public class ProducerServiceImpl implements ProducerService {
 
     @Override
     public void producerAnswer(SendMessage sendMessage) {
-        rabbitTemplate.convertAndSend(ANSWER_MESSAGE, sendMessage);
+        rabbitTemplate.convertAndSend(answerMessageQueue, sendMessage);
     }
 }

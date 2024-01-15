@@ -29,6 +29,7 @@ import ua.sb.repositories.AppDocumentRepository;
 import ua.sb.repositories.AppPhotoRepository;
 import ua.sb.repositories.BinaryContentRepository;
 import ua.sb.service.FileService;
+import ua.sb.utils.CryptoTool;
 
 @Log4j
 @Service
@@ -39,16 +40,19 @@ public class FileServiceImpl implements FileService {
     private String fileInfoUri;
     @Value("${service.file_storage.uri}")
     private String fileStorageUri;
+    @Value("${link.address}")
+    private String linkAddress;
     private final AppDocumentRepository appDocumentRepository;
     private final BinaryContentRepository binaryContentRepository;
     private final AppPhotoRepository appPhotoRepository;
-
+    private final CryptoTool cryptoTool;
     public FileServiceImpl(AppDocumentRepository appDocumentRepository,
                            BinaryContentRepository binaryContentRepository,
-                           AppPhotoRepository appPhotoRepository) {
+                           AppPhotoRepository appPhotoRepository, CryptoTool cryptoTool) {
         this.appDocumentRepository = appDocumentRepository;
         this.binaryContentRepository = binaryContentRepository;
         this.appPhotoRepository = appPhotoRepository;
+        this.cryptoTool = cryptoTool;
     }
 
     @Override
@@ -68,8 +72,9 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public AppPhoto processPhoto(Message telegramMessage) {
-//        int lastPhoto = telegramMessage.getPhoto().size() - 1;
-        PhotoSize telegramPhoto = telegramMessage.getPhoto().get(0); //get(lastPhoto);
+        int photoSizeCount = telegramMessage.getPhoto().size();
+        int photoIndex = photoSizeCount > 1 ? telegramMessage.getPhoto().size() - 1 : 0;
+        PhotoSize telegramPhoto = telegramMessage.getPhoto().get(photoIndex);
         String fileId = telegramPhoto.getFileId();
         var response = getFilePath(fileId);
         if (response.getStatusCode() == HttpStatus.OK) {
@@ -163,7 +168,7 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public String generateLink(Long docId, LinkType linkType) {
-        var hash = cryptoTool.hashOf(docId);
+        String hash = cryptoTool.hashOf(docId);
         return "http://" + linkAddress + "/" + linkType + "?id=" + hash;
     }
 }
