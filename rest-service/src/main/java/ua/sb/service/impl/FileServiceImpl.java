@@ -1,4 +1,4 @@
-package ua.sb.service.Impl;
+package ua.sb.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;

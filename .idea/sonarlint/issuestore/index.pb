@@ -128,3 +128,5 @@ u
 Erest-service/src/main/java/ua/sb/controller/ActivationController.java,9\8\98fe602dc27a4f1659d90bf3a796b971623a3bc5
 o
 ?rest-service/src/main/java/ua/sb/controller/FileController.java,5\7\578b6afaeef89772d94a403e447a1f9ada65271f
+r
+Brest-service/src/main/java/ua/sb/service/impl/FileServiceImpl.java,a\f\afdf0b4f50d02fcf53bb9f50c54961f835e988c4
