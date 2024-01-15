@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.Objects;
-
 import lombok.extern.log4j.Log4j;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,6 +43,7 @@ public class FileServiceImpl implements FileService {
     private final BinaryContentRepository binaryContentRepository;
     private final AppPhotoRepository appPhotoRepository;
     private final CryptoTool cryptoTool;
+
     public FileServiceImpl(AppDocumentRepository appDocumentRepository,
                            BinaryContentRepository binaryContentRepository,
                            AppPhotoRepository appPhotoRepository, CryptoTool cryptoTool) {
@@ -103,6 +101,20 @@ public class FileServiceImpl implements FileService {
                 .getString("file_path"));
     }
 
+    private ResponseEntity<String> getFilePath(String fileId) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        var request = new HttpEntity<>(headers);
+
+        return restTemplate.exchange(
+                fileInfoUri,
+                HttpMethod.GET,
+                request,
+                String.class,
+                token, fileId
+        );
+    }
+
     private AppDocument buildTransientAppDoc(Document telegramDoc,
                                              BinaryContent persistentBinaryContent) {
         return AppDocument.builder()
@@ -123,20 +135,6 @@ public class FileServiceImpl implements FileService {
                 .build();
     }
 
-    private ResponseEntity<String> getFilePath(String fileId) {
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        var request = new HttpEntity<>(headers);
-
-        return restTemplate.exchange(
-                fileInfoUri,
-                HttpMethod.GET,
-                request,
-                String.class,
-                token, fileId
-        );
-    }
-
     private byte[] downloadFile(String filePath) {
         String fullUri = fileStorageUri.replace("{token}", token)
                 .replace("{filePath}", filePath);
@@ -147,23 +145,11 @@ public class FileServiceImpl implements FileService {
             throw new UploadFileException(e);
         }
 
-        try (InputStream is = urlObj.openStream()) { //TODO - error
+        try (InputStream is = urlObj.openStream()) {
             return is.readAllBytes();
         } catch (IOException e) {
             throw new UploadFileException(urlObj.toExternalForm(), e);
         }
-
-//        URLConnection connection = null;
-//        try {
-//            connection = urlObj.openConnection();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        try (InputStream is = ((URLConnection) connection).getInputStream()) {
-//            return is.readAllBytes();
-//        } catch (IOException e) {
-//            throw new UploadFileException(urlObj.toExternalForm(), e);
-//        }
     }
 
     @Override

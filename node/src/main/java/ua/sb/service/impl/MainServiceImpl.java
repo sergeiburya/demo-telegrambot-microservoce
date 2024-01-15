@@ -7,6 +7,7 @@ import static ua.sb.model.enums.ServiceCommand.HELP;
 import static ua.sb.model.enums.ServiceCommand.REGISTRATION;
 import static ua.sb.model.enums.ServiceCommand.START;
 
+import java.util.Optional;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +15,11 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import ua.sb.exception.UploadFileException;
-import ua.sb.model.*;
+import ua.sb.model.AppDocument;
+import ua.sb.model.AppPhoto;
+import ua.sb.model.AppUser;
+import ua.sb.model.RawData;
+import ua.sb.model.UserState;
 import ua.sb.model.enums.LinkType;
 import ua.sb.model.enums.ServiceCommand;
 import ua.sb.repositories.AppUserRepositories;
@@ -23,8 +28,6 @@ import ua.sb.service.AppUserService;
 import ua.sb.service.FileService;
 import ua.sb.service.MainService;
 import ua.sb.service.ProducerService;
-
-import java.util.Optional;
 
 /**
  * @author Serhii Buria

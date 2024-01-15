@@ -1,5 +1,10 @@
 package ua.sb.service.impl;
 
+import static ua.sb.model.UserState.BASIC_STATE;
+import static ua.sb.model.UserState.WAIT_FOR_EMAIL_STATE;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -10,12 +15,6 @@ import ua.sb.model.AppUser;
 import ua.sb.repositories.AppUserRepositories;
 import ua.sb.service.AppUserService;
 import ua.sb.utils.CryptoTool;
-
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-
-import static ua.sb.model.UserState.BASIC_STATE;
-import static ua.sb.model.UserState.WAIT_FOR_EMAIL_STATE;
 
 @Log4j
 @RequiredArgsConstructor
