@@ -3,16 +3,16 @@ server:
 
 spring:
   mail:
-    host: smtp.
-    port: 465
+    host: smtp.gmail.com
+    port: 587 #465
     protocol: smtps
     username:
     password:
   rabbitmq:
     host: localhost
     port: 5672
-    username: userok
-    password: p@ssw0rd
+    username:
+    password:
     queues:
       registration-mail: registration_mail
 

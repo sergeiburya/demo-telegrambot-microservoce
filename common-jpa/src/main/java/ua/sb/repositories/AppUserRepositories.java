@@ -7,7 +7,7 @@ import ua.sb.model.AppUser;
 
 @Repository
 public interface AppUserRepositories extends JpaRepository<AppUser, Long> {
-    Optional<AppUser> findAppUserByTelegramUserId(Long id);
+    Optional<AppUser> findByTelegramUserId(Long id);
 
     Optional<AppUser> findById(Long id);
 

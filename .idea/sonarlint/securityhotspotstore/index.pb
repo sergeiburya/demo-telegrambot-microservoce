@@ -130,3 +130,5 @@ o
 ?rest-service/src/main/java/ua/sb/controller/FileController.java,5\7\578b6afaeef89772d94a403e447a1f9ada65271f
 r
 Brest-service/src/main/java/ua/sb/service/impl/FileServiceImpl.java,a\f\afdf0b4f50d02fcf53bb9f50c54961f835e988c4
+|
+Lrest-service/src/main/java/ua/sb/service/impl/UserActivationServiceImpl.java,7\1\71b63c8c5f49d1b0a5405a99b001f4b5da2e5bb5

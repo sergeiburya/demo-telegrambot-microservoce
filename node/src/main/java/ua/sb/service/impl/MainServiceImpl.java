@@ -174,7 +174,7 @@ public class MainServiceImpl implements MainService {
     private AppUser findOrSaveAppUser(Update update) {
         User telegramUser = update.getMessage().getFrom();
         Optional<AppUser> optionalPersistentAppUser =
-                appUserRepositories.findAppUserByTelegramUserId(telegramUser.getId());
+                appUserRepositories.findByTelegramUserId(telegramUser.getId());
         if (optionalPersistentAppUser.isEmpty()) {
             AppUser transientAppUser = AppUser.builder()
                     .telegramUserId(telegramUser.getId())
